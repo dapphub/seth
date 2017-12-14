@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+### seth-verify -- print the byteverify of an object on the blockchain
+### Usage: seth verify <tx> <target> <calldata>
+###
+### Verify that <tx> hash in the blockchain corresponds to a transaction
+### sent to address <target> with <calldata>
+### Returns true or false (and fails)
+set -e
+[[ $# -ge 3 ]] || seth --fail-usage "$0"
+tx=$(seth tx "$1")
+input=$(seth --field input <<<"$tx")
+to=$(seth --field to <<<"$tx")
+calldata=$(seth calldata "${@:3}")
+[[ $2 == $to ]] && [[ $calldata == $input ]] && exec echo true
+echo false
+exit 1
