@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-### seth-verify -- print the byteverify of an object on the blockchain
+### seth-verify -- verify a tx target and calldata
 ### Usage: seth verify <tx> <target> <calldata>
 ###
 ### Verify that <tx> hash in the blockchain corresponds to a transaction
