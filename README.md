@@ -10,7 +10,7 @@ go *"It's a Unix system—I know this!"*
 :fax: If you're doing **blockchain automation**, Seth is an excellent
 base for deploy scripts, integration tests, and bots.
 
-:money_with_wings: Or if you love the idea of open source finance,
+:money_with_wings: Or if you love the idea of **open source finance**,
 Seth is a sci-fi future where you can securely manage funds and
 contracts from the comfort of your command line.
 
