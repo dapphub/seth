@@ -1,18 +1,17 @@
 Seth [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/seth/all.svg)](https://github.com/dapphub/seth/releases)
 ========================================================================
 
-Seth is a tool for reading and transacting with Ethereum
-blockchains—kind of like a MetaMask for the command line—maintained by
-[the DappHub collective].
+Seth is an Ethereum client tool—like a MetaMask for the command
+line—maintained by [the DappHub collective].
 
 :older_woman: If you're a **command-line hacker**, Seth will make you
-go "*It's a Unix system—I know this!*"
+go *"It's a Unix system—I know this!"*
 
-:construction_worker: If you're working on a **dapp frontend**, Seth
-is great for quickly sending a hand-crafted test transaction.
+:wrench: If you're building a **dapp frontend**, Seth is great for
+quickly sending a hand-crafted test transaction.
 
-:computer: If you're doing **blockchain automation**, Seth is an
-excellent base for deploy scripts, integration tests, bots, and so on.
+:fax: If you're doing **blockchain automation**, Seth is an excellent
+base for deploy scripts, integration tests, bots, and so on.
 
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
