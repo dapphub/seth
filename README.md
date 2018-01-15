@@ -11,7 +11,7 @@ go *"It's a Unix system—I know this!"*
 quickly sending a hand-crafted test transaction.
 
 :fax: If you're doing **blockchain automation**, Seth is an excellent
-base for deploy scripts, integration tests, bots, and so on.
+base for deploy scripts, integration tests, and bots.
 
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
@@ -25,12 +25,25 @@ hardware wallets.
 
 > "The Unix approach you've taken is perfect." —`immutability`
 
+Contents
+------------------------------------------------------------------------
+
+1. [Installing](#installing)
+1.1. [Upgrading](#upgrading)
+2. [Configuration](#configuration)
+2.1. [Example `.sethrc` file](#example-sethrc-file)
+2.2. [Connecting to the blockchain](#connecting-to-the-blockchain)
+2.3. [Key management and signing](#key-management-and-signing)
+2.4. [Your address](#your-address)
+3. [Basic usage: a tutorial](#basic-usage-a-tutorial)
+3.1. [Ether transactions](#ether-transactions)
+
 Installing
 ------------------------------------------------------------------------
 
-Seth is distributed via [the Nix package manager], which enables
-cryptographically accurate dependency tracking on GNU/Linux and Mac.
-First, install Nix itself:
+Seth is distributed via [the Nix package manager], enabling
+cryptographically precise dependency tracking.  First, install Nix
+itself:
 
     $ curl https://nixos.org/nix/install | sh
 
@@ -131,7 +144,7 @@ This section assumes that you have something like the example
 `.sethrc` file specifying how to connect to the blockchain
 and a default sender address.
 
-## Ether transactions
+### Ether transactions
 
 Here is how you might send one wei—the smallest possible amount of
 ether—to the [Ethereum Foundation's donation address]:
