@@ -204,13 +204,13 @@ also useful.
 Now you can use [`seth balance`](#seth-balance) to see how much is in
 the donation fund:
 
-    $ [seth balance](#seth-balance) 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
+    $ seth balance 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     2963.72865500027557173E+18
 
 You can use [`seth ls`](#seth-ls) to check the ether balances of your
 own accounts:
 
-    $ [seth ls](#seth-ls)
+    $ seth ls
     0xCC41D9831E4857B4F16914A356306fBeA734183A    0.24E+18
     0xD9ceccea2BEE9a367d78658aBbB2Fe979b3877Ef    0.03409E+18
 
