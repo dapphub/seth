@@ -25,9 +25,10 @@ hardware wallets.
 
 > "The Unix approach you've taken is perfect." —`immutability`
 
-Seth is also the basis for other tools—such as the [MakerDAO
-CDP utility], which lets you interact with the Dai stablecoin system
-from your shell.
+Seth is also the basis for other tools—such as [`token`], an ERC20
+tool that will be integrated into Seth itself, and the [MakerDAO CDP
+utility] which lets you interact with the [Dai stablecoin system] from
+your shell.
 
 Contents
 ------------------------------------------------------------------------
@@ -41,6 +42,10 @@ Contents
       * [Your address](#your-address)
   * [Basic usage: a tutorial](#basic-usage-a-tutorial)
       * [Ether transactions](#ether-transactions)
+      * [Helper commands](#helper-commands)
+      * [Checking ether balances](#checking-ether-balances)
+      * [Reading from contracts](#reading-from-smart-contracts)
+      * [Transacting with contracts](#transacting-with-contracts)
 
 Installing
 ------------------------------------------------------------------------
@@ -150,10 +155,11 @@ and a default sender address.
 
 ### Ether transactions
 
-Here is how you might send one wei—the smallest possible amount of
-ether—to the [Ethereum Foundation's donation address]:
+Here is how you might use [`seth send`](#seth-send) to send one
+wei—the smallest possible amount of ether—to the [Ethereum
+Foundation's donation address]:
 
-    $ [seth send](#seth-send) --value 1 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
+    $ seth send --value 1 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     seth-send: warning: `ETH_GAS' not set; using default gas amount
     Ethereum account passphrase (not echoed):
     seth-send: Published transaction with 0 bytes of calldata.
@@ -161,16 +167,19 @@ ether—to the [Ethereum Foundation's donation address]:
     seth-send: Waiting for transaction receipt...
     seth-send: Transaction included in block 4908738.
 
-Now you can check the balance of the donation fund:
+### Helper commands
 
-    $ [seth balance](#seth-balance) 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
-    2963.72865500027557173E+18
+The most used Seth helper command is [`seth --to-wei`] which converts
+a readable quantity into an integer number of wei.  There is also
+[`seth --from-wei`] which does the opposite.
 
-You can also check the ether balances of your own accounts:
+For more advanced blockchain interactions, the helpers [`seth
+--abi-decode`], [`seth --from-ascii`], and [`seth --from-bin`] are
+also useful.
 
-    $ [seth ls](#seth-ls)
-    0xCC41D9831E4857B4F16914A356306fBeA734183A    0.24E+18
-    0xD9ceccea2BEE9a367d78658aBbB2Fe979b3877Ef    0.03409E+18
+The `$(...)` shell syntax for ["command substitution"] is very useful
+with Seth.  It allows the output of one command to become a parameter
+to another.  An example follows.
 
 Generally, you don't transact in terms of wei amounts, but in
 fractional amounts of ether.  You can convert an ether amount into a
@@ -180,10 +189,64 @@ ETH:
     $ fund=0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     $ seth send --value $(seth --to-wei 1.5 eth) $fund
 
-(The `$(...)` shell syntax for ["command substitution"] is useful with
-Seth.  It allows the output of one command to become a parameter
-to another.)
+### Checking ether balances
 
+Now you can use [`seth balance`](#seth-balance) to see how much is in
+the donation fund:
+
+    $ [seth balance](#seth-balance) 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
+    2963.72865500027557173E+18
+
+You can use [`seth ls`](#seth-ls) to check the ether balances of your
+own accounts:
+
+    $ [seth ls](#seth-ls)
+    0xCC41D9831E4857B4F16914A356306fBeA734183A    0.24E+18
+    0xD9ceccea2BEE9a367d78658aBbB2Fe979b3877Ef    0.03409E+18
+
+### Reading from contracts
+
+The basic tool to read information from a contract is [seth call],
+which performs a call without publishing a transaction.
+
+For example, you can read the total supply parameter the [MakerDAO]
+fund using the ERC20 ABI:
+
+    $ MKR_TOKEN=0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2
+    $ seth call $MKR_TOKEN "totalSupply()"
+    0x00000000000000000000000000000000000000000000d3c21bcecceda1000000
+
+If the ABI function has parameters, you can supply them as additional
+arguments; for example, to check the balance of the MakerDAO fund:
+
+    $ MKR_FUND=0x7Bb0b08587b8a6B8945e09F1Baca426558B0f06a
+    $ seth call $MKR_TOKEN "balanceOf(address)" $MKR_FUND
+    0x0000000000000000000000000000000000000000000050d7e9ff54cf2725f61b
+
+(See also [`token`] for a more convenient way to use ERC20 tokens.)
+
+You can also use [`seth logs`] to read event logs from a contract or
+[`seth code`] to get a contract's bytecode.
+
+### Transacting with contracts
+
+The [`seth send`] tool is not only capable of sending ether, but also
+of constructing, signing, and publishing contract transactions.
+This requires that you know the exact ABI method to use.
+
+For example, to approve access to some of your [Dai] for the
+[OasisDEX] decentralized exchange using the ERC20 approval interface:
+
+    $ DAI=0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359
+    $ OASIS=0x14FBCA95be7e99C15Cc2996c6C9d841e54B79425
+    $ amount=$(seth --from-wei 0.5 ether)
+    $ seth send $DAI "approve(address,uint256)" $OASIS $amount
+
+(Again, see [`token`] for a more convenient way to interact with
+ERC20 tokens.)
+
+See [`seth send`] for details on passing arguments, doing asynchronous
+transactions, and so on.
 
 
 [the DappHub collective]: https://dapphub.com
@@ -199,3 +262,38 @@ to another.)
 [the Nix package manager]: https://nixos.org/nix
 
 [MakerDAO CDP utility]: https://github.com/makerdao/dai-cli
+
+[`seth --from-wei`]: #seth-from-wei
+[`seth --to-wei`]: #seth-to-wei
+[`seth balance`]: #seth-balance
+[`seth ls`]: #seth-ls
+[`seth send`]: #seth-send
+[`seth abi`]: #seth-abi
+[`seth age`]: #seth-age
+[`seth balance`]: #seth-balance
+[`seth block`]: #seth-block
+[`seth call`]: #seth-call
+[`seth calldata`]: #seth-calldata
+[`seth chain`]: #seth-chain
+[`seth code`]: #seth-code
+[`seth estimate`]: #seth-estimate
+[`seth events`]: #seth-events
+[`seth help`]: #seth-help
+[`seth keccak`]: #seth-keccak
+[`seth logs`]: #seth-logs
+[`seth ls`]: #seth-ls
+[`seth mktx`]: #seth-mktx
+[`seth nonce`]: #seth-nonce
+[`seth publish`]: #seth-publish
+[`seth receipt`]: #seth-receipt
+[`seth send`]: #seth-send
+[`seth sign`]: #seth-sign
+[`seth storage`]: #seth-storage
+[`seth tx`]: #seth-tx
+
+[`token`]: https://github.com/dapphub/token
+
+[MakerDAO]: https://makerdao.com
+[Dai stablecoin system]: https://makerdao.com
+[Dai]: https://makerdao.com
+[OasisDEX]: https://oasisdex.com
