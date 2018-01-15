@@ -1,25 +1,26 @@
-Seth: Ethereum from the shell [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/seth/all.svg)](https://github.com/dapphub/seth/releases)
+Seth [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/seth/all.svg)](https://github.com/dapphub/seth/releases)
 ========================================================================
 
-Seth is a tool for reading and transacting with Ethereum blockchains,
-kind of like a MetaMask for the command line.  It is maintained by
+Seth is a tool for reading and transacting with Ethereum
+blockchains—kind of like a MetaMask for the command line—maintained by
 [the DappHub collective].
 
-If you're a **command-line hacker**, Seth will make you go "*It's a Unix
-system—I know this!*"
+:older_woman: If you're a **command-line hacker**, Seth will make you
+go "*It's a Unix system—I know this!*"
 
-If you're working on a **dapp frontend**, Seth is great for quickly
-sending a hand-crafted test transaction.
+:construction_worker: If you're working on a **dapp frontend**, Seth
+is great for quickly sending a hand-crafted test transaction.
 
-If you're doing **blockchain automation**, Seth is an excellent base for
-deploy scripts, integration tests, bots, and so on.
+:computer: If you're doing **blockchain automation**, Seth is an
+excellent base for deploy scripts, integration tests, bots, and so on.
 
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
 
 > "One indicator I look for in a healthy open source project is how
-  many useful tools come out of its team as a side effect of
-  their efforts." —Dan Finlay
+  many useful tools come out of its team as a side effect of their
+  efforts."
+  —[`@danfinlay`](https://twitter.com/danfinlay/status/942909341044162560])
 
 > "Looks like a great set of CLI tools, very devopsy." —Andreas Antonopolous
 
