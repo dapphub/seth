@@ -32,15 +32,15 @@ from your shell.
 Contents
 ------------------------------------------------------------------------
 
-  1. [Installing](#installing)
-      1.1. [Upgrading](#upgrading)
-  2. [Configuration](#configuration)
-      2.1. [Example `.sethrc` file](#example-sethrc-file)
-      2.2. [Connecting to the blockchain](#connecting-to-the-blockchain)
-      2.3. [Key management and signing](#key-management-and-signing)
-      2.4. [Your address](#your-address)
-  3. [Basic usage: a tutorial](#basic-usage-a-tutorial)
-      3.1. [Ether transactions](#ether-transactions)
+  * [Installing](#installing)
+      * [Upgrading](#upgrading)
+  * [Configuration](#configuration)
+      * [Example `.sethrc` file](#example-sethrc-file)
+      * [Connecting to the blockchain](#connecting-to-the-blockchain)
+      * [Key management and signing](#key-management-and-signing)
+      * [Your address](#your-address)
+  * [Basic usage: a tutorial](#basic-usage-a-tutorial)
+      * [Ether transactions](#ether-transactions)
 
 Installing
 ------------------------------------------------------------------------
