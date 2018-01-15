@@ -151,6 +151,7 @@ looks for the first four addresses derived from your seed phrase.
 If the sending address is not one of those, Seth will not be able
 to sign transactions.
 
+<br />
 
 Basic usage: a tutorial
 ------------------------------------------------------------------------
