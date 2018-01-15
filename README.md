@@ -16,6 +16,15 @@ sci-fi future where you can manage funds from the command line.
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
 
+> "One indicator I look for in a healthy open source project is how
+  many useful tools come out of its team as a side effect of their
+  efforts."
+  —[`@danfinlay`](https://twitter.com/danfinlay/status/942909341044162560])
+>
+> "Looks like a great set of CLI tools, very devopsy." —Andreas Antonopolous
+>
+> "The Unix approach you've taken is perfect." —`immutability`
+
 <div align="center">
   <h3>
     <a href=https://dapphub.chat>dapphub.chat</a>
@@ -26,15 +35,6 @@ hardware wallets.
   </h3>
 </div>
 <br />
-
-> "One indicator I look for in a healthy open source project is how
-  many useful tools come out of its team as a side effect of their
-  efforts."
-  —[`@danfinlay`](https://twitter.com/danfinlay/status/942909341044162560])
-
-> "Looks like a great set of CLI tools, very devopsy." —Andreas Antonopolous
-
-> "The Unix approach you've taken is perfect." —`immutability`
 
 Contents
 ------------------------------------------------------------------------
