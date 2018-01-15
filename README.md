@@ -179,10 +179,6 @@ Foundation's donation address]:
 
 ### Helper commands
 
-The most used Seth helper command is [`seth --to-wei`] which converts
-a readable quantity into an integer number of wei.  There is also
-[`seth --from-wei`] which does the opposite.
-
 The `$(...)` shell syntax for ["command substitution"] is very useful
 with Seth.  It allows the output of one command to become a parameter
 to another.  An example follows.
@@ -194,6 +190,9 @@ ETH:
 
     $ fund=0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     $ seth send --value $(seth --to-wei 1.5 eth) $fund
+
+There is also [`seth --from-wei`] for converting wei amounts into a
+more readable notation.
 
 For more advanced blockchain interactions, the helpers [`seth
 --abi-decode`], [`seth --from-ascii`], and [`seth --from-bin`] are
