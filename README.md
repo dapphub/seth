@@ -1,52 +1,47 @@
-Seth: use Ethereum from the comfort of your command line
+Seth: Ethereum from the shell [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/hevm/all.svg)](https://github.com/dapphub/hevm/releases)
 ========================================================================
 
 Seth is a tool for reading and transacting with Ethereum blockchains.
+It is maintained by [the DappHub collective] and is released under the
+terms of the GNU General Public License (version 3 or later).
 
-* If you're a command-line hacker, Seth will make you go *It's a Unix
-  system—I know this!*
+If you're a **command-line hacker**, Seth will make you go "*It's a Unix
+system—I know this!*"
 
-* If you're working on a dapp frontend, Seth is great for quickly
-  sending a hand-crafted test transaction.
+If you're working on a **dapp frontend**, Seth is great for quickly
+sending a hand-crafted test transaction.
 
-* If you're doing blockchain automation, Seth is an excellent base for
-  deploy scripts, integration tests, bots, and so on.
+If you're doing **blockchain automation**, Seth is an excellent base for
+deploy scripts, integration tests, bots, and so on.
 
-Seth supports signing transactions with [Ledger Nano S] hardware wallets.
-
-Seth is mostly developed by [the DappHub collective] and is released
-under the terms of the GNU General Public License (version 3 or later).
-
+**New:** Seth supports signing transactions with [Ledger Nano S]
+hardware wallets.
 
 Installing
 ------------------------------------------------------------------------
 
-Seth is distributed via the Nix package manager, which enables
+Seth is distributed via [the Nix package manager], which enables
 cryptographically accurate dependency tracking on GNU/Linux and Mac.
-
 First, install Nix itself:
 
-    curl https://nixos.org/nix/install | sh
+    $ curl https://nixos.org/nix/install | sh
 
-Be sure to follow the printed instructions to get the Nix tools in
-your `PATH`.
+Then add DappHub's distribution channel and install `seth`:
 
-Then add DappHub's distribution channel and install Seth:
+    $ nix-channel --add https://nix.dapphub.com/pkgs/dapphub
+    $ nix-channel --update
+    $ nix-env -iA dapphub.seth
 
-    nix-channel --add https://nix.dapphub.com/pkgs/dapphub
-    nix-channel --update
-    nix-env -iA dapphub.seth
-
-(See [dapp.tools](https://dapp.tools) for more software available
-through our channel.)
+See [dapp.tools](https://dapp.tools) for more software available
+through our channel.
 
 ### Upgrading
 
 To upgrade Seth to the latest release, update the channel and then
 reinstall:
 
-    nix-channel --update
-    nix-env -iA dapphub.seth
+    $ nix-channel --update
+    $ nix-env -iA dapphub.seth
 
 
 Configuration
@@ -57,11 +52,24 @@ or environment variables.
 
 For convenience, Seth looks for `~/.sethrc` and loads it as a shell
 script (Bash 4 syntax).  This is a convenient place to set default
-options for Seth by exporting environment variables.
+options by exporting environment variables.
 
-The most important global Seth parameters are as follows.
-(Note that the different Seth commands also have their own flags
-which are not described here.)
+### Example `.sethrc` file
+
+The `~/.sethrc` file is just a regular Bash script that is
+automatically loaded by Seth.  Here is an example:
+
+    # Use Infura's mainnet node for all RPC calls
+    export SETH_CHAIN=ethlive
+
+    # Set an address as the default sender
+    export ETH_FROM=0xd08f67044c53d723686e002c5b880f73674e164c
+
+    # Look for my key files in a custom directory
+    export ETH_KEYSTORE=~/secrets/ethereum
+
+Note that flags given to the `seth` command will override
+these settings.
 
 ### Connecting to the blockchain
 
@@ -79,8 +87,8 @@ Allowed values: `ethlive` (aka `mainnet`), `ropsten`, `kovan`, and
 
 By default, Seth does not use the RPC node for key management or
 signing transactions.  Instead, it uses keys stored on your machine,
-as well as your Ledger Nano S hardware wallet (if present).
-Thus, you do not need to "unlock" your account in Geth or Parity.
+as well as your Ledger Nano S hardware wallet (if present).  **Thus,
+you do not need to "unlock" your account in Geth or Parity.**
 
 Seth looks for keys in the standard directories of Geth and Parity.
 To configure a custom location for your key files, use the
@@ -107,23 +115,6 @@ looks for the first four addresses derived from your seed phrase.
 If the sending address is not one of those, Seth will not be able
 to sign transactions.
 
-### Example `.sethrc` file
-
-The `~/.sethrc` file is just a regular Bash script that is
-automatically loaded by Seth.  Here is an example:
-
-    # Use Infura's mainnet node for all RPC calls
-    export SETH_CHAIN=ethlive
-
-    # Set an address as the default sender
-    export ETH_FROM=0xd08f67044c53d723686e002c5b880f73674e164c
-
-    # Look for my key files in a custom directory
-    export ETH_KEYSTORE=~/secrets/ethereum
-
-Note that flags given to the `seth` command will override
-these settings.
-
 
 Basic usage: a tutorial
 ------------------------------------------------------------------------
@@ -137,7 +128,7 @@ and a default sender address.
 Here is how you might send one wei—the smallest possible amount of
 ether—to the [Ethereum Foundation's donation address]:
 
-    igloo:~$ [seth send](#seth-send) --value 1 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
+    $ [seth send](#seth-send) --value 1 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     seth-send: warning: `ETH_GAS' not set; using default gas amount
     Ethereum account passphrase (not echoed):
     seth-send: Published transaction with 0 bytes of calldata.
@@ -147,12 +138,12 @@ ether—to the [Ethereum Foundation's donation address]:
 
 Now you can check the balance of the donation fund:
 
-    igloo:~$ [seth balance](#seth-balance) 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
+    $ [seth balance](#seth-balance) 0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     2963.72865500027557173E+18
 
 You can also check the ether balances of your own accounts:
 
-    igloo:~*$ [seth ls](#seth-ls)
+    $ [seth ls](#seth-ls)
     0xCC41D9831E4857B4F16914A356306fBeA734183A    0.24E+18
     0xD9ceccea2BEE9a367d78658aBbB2Fe979b3877Ef    0.03409E+18
 
@@ -161,8 +152,8 @@ fractional amounts of ether.  You can convert an ether amount into a
 wei amount using [`seth --to-wei`](#seth-to-wei).  Here, we send 1.5
 ETH:
 
-    igloo:~$ fund=0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
-    igloo:~$ seth send --value $(seth --to-wei 1.5 eth) $fund
+    $ fund=0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
+    $ seth send --value $(seth --to-wei 1.5 eth) $fund
 
 (The `$(...)` shell syntax for ["command substitution"] is useful with
 Seth.  It allows the output of one command to become a parameter
@@ -175,3 +166,4 @@ to another.)
 [Infura]: https://infura.io
 ["command substitution"]: https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html
 [Ethereum Foundation's donation address]: https://www.ethereum.org/donate
+[the Nix package manager]: https://nixos.org/nix
