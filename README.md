@@ -1,9 +1,9 @@
-Seth: Ethereum from the shell [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/hevm/all.svg)](https://github.com/dapphub/hevm/releases)
+Seth: Ethereum from the shell [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/seth/all.svg)](https://github.com/dapphub/seth/releases)
 ========================================================================
 
-Seth is a tool for reading and transacting with Ethereum blockchains.
-It is maintained by [the DappHub collective] and is released under the
-terms of the GNU General Public License (version 3 or later).
+Seth is a tool for reading and transacting with Ethereum blockchains,
+kind of like a MetaMask for the command line.  It is maintained by
+[the DappHub collective].
 
 If you're a **command-line hacker**, Seth will make you go "*It's a Unix
 system—I know this!*"
@@ -16,6 +16,14 @@ deploy scripts, integration tests, bots, and so on.
 
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
+
+> "One indicator I look for in a healthy open source project is how
+  many useful tools come out of its team as a side effect of
+  their efforts." —Dan Finlay
+
+> "Looks like a great set of CLI tools, very devopsy." —Andreas Antonopolous
+
+> "The Unix approach you've taken is perfect." —`immutability`
 
 Installing
 ------------------------------------------------------------------------
