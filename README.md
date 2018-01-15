@@ -1,4 +1,4 @@
-Seth [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/seth/all.svg)](https://github.com/dapphub/seth/releases)
+Seth
 ========================================================================
 
 Seth is an Ethereum client tool—like a "MetaMask for the command
@@ -16,6 +16,17 @@ sci-fi future where you can manage funds from the command line.
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
 
+<div align="center">
+  <h3>
+    <a href=https://dapphub.chat>dapphub.chat</a>
+    <span> — </span>
+    <a href=https://dapp.tools>dapp.tools</a>
+    <span> — </span>
+    <a href=https://dapphub.com>dapphub.com</a>
+  </h3>
+</div>
+<br />
+
 > "One indicator I look for in a healthy open source project is how
   many useful tools come out of its team as a side effect of their
   efforts."
@@ -24,11 +35,6 @@ hardware wallets.
 > "Looks like a great set of CLI tools, very devopsy." —Andreas Antonopolous
 
 > "The Unix approach you've taken is perfect." —`immutability`
-
-Seth is also the basis for other tools—such as [`token`], an ERC20
-tool that will be integrated into Seth itself, and the [MakerDAO CDP
-utility] which lets you interact with the [Dai stablecoin system] from
-your shell.
 
 Contents
 ------------------------------------------------------------------------
