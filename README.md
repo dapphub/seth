@@ -1,17 +1,18 @@
 Seth [![GitHub (pre-)release](https://img.shields.io/github/release/dapphub/seth/all.svg)](https://github.com/dapphub/seth/releases)
 ========================================================================
 
-Seth is an Ethereum client tool—like a MetaMask for the command
-line—maintained by [the DappHub collective].
+Seth is an Ethereum client tool—like a "MetaMask for the command
+line"—maintained by [the DappHub collective].
 
 :older_woman: If you're a **command-line hacker**, Seth will make you
 go *"It's a Unix system—I know this!"*
 
-:wrench: If you're building a **dapp frontend**, Seth is great for
-quickly sending a hand-crafted test transaction.
-
 :fax: If you're doing **blockchain automation**, Seth is an excellent
 base for deploy scripts, integration tests, and bots.
+
+:money_with_wings: Or if you love the idea of open source finance,
+Seth is a sci-fi future where you can securely manage funds and
+contracts from the comfort of your command line.
 
 **New:** Seth supports signing transactions with [Ledger Nano S]
 hardware wallets.
@@ -24,6 +25,10 @@ hardware wallets.
 > "Looks like a great set of CLI tools, very devopsy." —Andreas Antonopolous
 
 > "The Unix approach you've taken is perfect." —`immutability`
+
+:wrench: Seth is also the basis for other tools—such as the [MakerDAO
+CDP utility], which lets you interact with the Dai stablecoin system
+from your shell.
 
 Contents
 ------------------------------------------------------------------------
@@ -188,3 +193,4 @@ to another.)
 ["command substitution"]: https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html
 [Ethereum Foundation's donation address]: https://www.ethereum.org/donate
 [the Nix package manager]: https://nixos.org/nix
+[MakerDAO CDP utilities]: https://github.com/makerdao/dai-cli
