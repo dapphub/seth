@@ -53,6 +53,8 @@ Contents
       * [Reading from contracts](#reading-from-smart-contracts)
       * [Transacting with contracts](#transacting-with-contracts)
 
+<br />
+
 Installing
 ------------------------------------------------------------------------
 
@@ -79,6 +81,7 @@ reinstall:
     $ nix-channel --update
     $ nix-env -iA dapphub.seth
 
+<br />
 
 Configuration
 ------------------------------------------------------------------------
