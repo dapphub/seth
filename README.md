@@ -183,10 +183,6 @@ The most used Seth helper command is [`seth --to-wei`] which converts
 a readable quantity into an integer number of wei.  There is also
 [`seth --from-wei`] which does the opposite.
 
-For more advanced blockchain interactions, the helpers [`seth
---abi-decode`], [`seth --from-ascii`], and [`seth --from-bin`] are
-also useful.
-
 The `$(...)` shell syntax for ["command substitution"] is very useful
 with Seth.  It allows the output of one command to become a parameter
 to another.  An example follows.
@@ -198,6 +194,10 @@ ETH:
 
     $ fund=0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359
     $ seth send --value $(seth --to-wei 1.5 eth) $fund
+
+For more advanced blockchain interactions, the helpers [`seth
+--abi-decode`], [`seth --from-ascii`], and [`seth --from-bin`] are
+also useful.
 
 ### Checking ether balances
 
@@ -273,13 +273,14 @@ transactions, and so on.
 
 [MakerDAO CDP utility]: https://github.com/makerdao/dai-cli
 
+[`seth --abi-decode`]: #seth-abi-decode
+[`seth --from-ascii`]: #seth-from-ascii
+[`seth --from-bin`]: #seth-from-bin
 [`seth --from-wei`]: #seth-from-wei
 [`seth --to-wei`]: #seth-to-wei
-[`seth balance`]: #seth-balance
-[`seth ls`]: #seth-ls
-[`seth send`]: #seth-send
 [`seth abi`]: #seth-abi
 [`seth age`]: #seth-age
+[`seth balance`]: #seth-balance
 [`seth balance`]: #seth-balance
 [`seth block`]: #seth-block
 [`seth call`]: #seth-call
@@ -292,10 +293,12 @@ transactions, and so on.
 [`seth keccak`]: #seth-keccak
 [`seth logs`]: #seth-logs
 [`seth ls`]: #seth-ls
+[`seth ls`]: #seth-ls
 [`seth mktx`]: #seth-mktx
 [`seth nonce`]: #seth-nonce
 [`seth publish`]: #seth-publish
 [`seth receipt`]: #seth-receipt
+[`seth send`]: #seth-send
 [`seth send`]: #seth-send
 [`seth sign`]: #seth-sign
 [`seth storage`]: #seth-storage
