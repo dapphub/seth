@@ -26,7 +26,7 @@ hardware wallets.
 
 > "The Unix approach you've taken is perfect." —`immutability`
 
-:wrench: Seth is also the basis for other tools—such as the [MakerDAO
+Seth is also the basis for other tools—such as the [MakerDAO
 CDP utility], which lets you interact with the Dai stablecoin system
 from your shell.
 
@@ -188,9 +188,15 @@ to another.)
 
 
 [the DappHub collective]: https://dapphub.com
+
 [Ledger Nano S]: https://www.ledgerwallet.com/products/ledger-nano-s
+
 [Infura]: https://infura.io
+
 ["command substitution"]: https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html
+
 [Ethereum Foundation's donation address]: https://www.ethereum.org/donate
+
 [the Nix package manager]: https://nixos.org/nix
-[MakerDAO CDP utilities]: https://github.com/makerdao/dai-cli
+
+[MakerDAO CDP utility]: https://github.com/makerdao/dai-cli
